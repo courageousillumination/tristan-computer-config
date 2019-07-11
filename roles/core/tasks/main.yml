@@ -1,0 +1,19 @@
+---
+- name: Install essential build tools
+  become: true
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+      - build-essential
+      - git
+
+- name: Install other command line utilities
+  become: true
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+      - htop

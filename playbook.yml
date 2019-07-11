@@ -1,0 +1,5 @@
+---
+- hosts: all
+  roles:
+    - {role: 'core', tags: 'core'}
+    - {role: 'vscode', tags: 'vscode'}
