@@ -1,0 +1,37 @@
+---
+- name: Add node repo key
+  become: true
+  become_user: root
+  apt_key:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    state: present
+- name: Set up the node repository
+  become: true
+  become_user: root
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_12.x bionic main
+    state: present
+- name: Install Node
+  become: true
+  become_user: root
+  apt:
+    name: nodejs
+    update_cache: true
+- name: Add yarn repo key
+  become: true
+  become_user: root
+  apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+    state: present
+- name: Set up the yarn repository
+  become: true
+  become_user: root
+  apt_repository:
+    repo: deb https://dl.yarnpkg.com/debian/ stable main
+    state: present
+- name: Install yarn
+  become: true
+  become_user: root
+  apt:
+    name: yarn
+    update_cache: true

@@ -9,6 +9,7 @@
     packages:
       - build-essential
       - git
+      - curl
 
 - name: Install other command line utilities
   become: true
