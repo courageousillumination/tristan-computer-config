@@ -11,3 +11,11 @@
   apt:
     name: code
     update_cache: true
+- name: Copy settings file
+  copy:
+    src: settings.json
+    dest: "{{ user_home_path }}.config/Code/User/settings.json"
+- name: Install generally useful extensions
+  become: true
+  become_user: "{{ default_user }}"
+  shell: code --install-extension esbenp.prettier-vscode
