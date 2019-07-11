@@ -4,5 +4,7 @@
     - { role: "core", tags: "core" }
     - { role: "vscode", tags: "vscode" }
   vars:
-    user_home_path: "/home/tristan/"
-    default_user: "tristan"
+    - user_home_path: "/home/tristan/"
+    - default_user: "tristan"
+  become: true
+  become_user: "tristan"

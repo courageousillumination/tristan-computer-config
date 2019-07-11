@@ -1,6 +1,7 @@
 ---
 - name: Install essential build tools
   become: true
+  become_user: root
   apt:
     name: "{{ packages }}"
     update_cache: yes
@@ -11,6 +12,7 @@
 
 - name: Install other command line utilities
   become: true
+  become_user: root
   apt:
     name: "{{ packages }}"
     update_cache: yes

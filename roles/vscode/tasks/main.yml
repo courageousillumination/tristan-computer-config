@@ -1,13 +1,19 @@
 ---
 - name: Set up the Microsoft Apt signing key
+  become: true
+  become_user: root
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
     state: present
 - name: Set up the Microsoft repository
+  become: true
+  become_user: root
   apt_repository:
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
     state: present
 - name: Install VSCode
+  become: true
+  become_user: root
   apt:
     name: code
     update_cache: true
@@ -16,6 +22,4 @@
     src: settings.json
     dest: "{{ user_home_path }}.config/Code/User/settings.json"
 - name: Install generally useful extensions
-  become: true
-  become_user: "{{ default_user }}"
   shell: code --install-extension esbenp.prettier-vscode
