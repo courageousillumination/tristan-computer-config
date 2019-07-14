@@ -1,0 +1,31 @@
+---
+- name: Install i3
+  become: true
+  become_user: root
+  apt:
+    package: "i3"
+    update_cache: true
+- name: Copy i3 config
+  template:
+    src: i3config.j2
+    dest: "{{ user_home_path }}.config/i3/config"
+
+# Set up background
+- name: Install feh (Background Image Management)
+  become: true
+  become_user: root
+  apt:
+    package: "feh"
+    update_cache: true
+- name: Copy over wallpaper images
+  copy:
+    src: Wallpapers
+    dest: "{{ user_home_path }}Pictures/"
+
+# Using rofi for launcher
+- name: Install rofi (Program launcher)
+  become: true
+  become_user: root
+  apt:
+    package: "rofi"
+    update_cache: true
