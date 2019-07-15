@@ -5,6 +5,7 @@
     - { role: "vscode", tags: "vscode" }
     - { role: "javascript", tags: "javascript"}
     - { role: "i3", tags: "i3"}
+    - { role: "study", tags: "study"}
   vars:
     - user_home_path: "/home/tristan/"
     - default_user: "tristan"

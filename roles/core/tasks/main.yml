@@ -10,6 +10,7 @@
       - build-essential
       - git
       - curl
+      - python3-distutils
 
 - name: Install other command line utilities
   become: true

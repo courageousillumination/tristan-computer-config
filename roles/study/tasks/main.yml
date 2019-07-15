@@ -1,0 +1,7 @@
+---
+- name: Install anki
+  become: true
+  become_user: root
+  apt:
+    name: anki
+    update_cache: true
