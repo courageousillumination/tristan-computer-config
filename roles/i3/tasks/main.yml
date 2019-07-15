@@ -29,3 +29,10 @@
   apt:
     package: "rofi"
     update_cache: true
+
+# Configure fonts
+- name: Install Overpass
+  copy:
+    src: overpass
+    dest: "{{ user_home_path }}.fonts"
+    

@@ -8,6 +8,7 @@
   vars:
     packages:
       - build-essential
+      - clang
       - git
       - curl
       - python3-distutils
