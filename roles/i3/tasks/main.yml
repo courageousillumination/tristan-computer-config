@@ -1,10 +1,14 @@
 ---
-- name: Install i3
+- name: Install i3 and associated packages
   become: true
   become_user: root
   apt:
-    package: "i3"
+    package: "{{ packages }}"
     update_cache: true
+  vars:
+   packages:
+    - i3
+    - i3blocks
 - name: Copy i3 config
   template:
     src: i3config.j2
@@ -29,6 +33,11 @@
   apt:
     package: "rofi"
     update_cache: true
+
+- name: Copy rofi files
+  copy:
+    src: rofi
+    dest: "{{ user_home_path }}.config/"
 
 # Configure fonts
 - name: Install Overpass
