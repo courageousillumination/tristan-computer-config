@@ -29,3 +29,27 @@
   lineinfile:
     path: /etc/sysctl.conf
     line: fs.inotify.max_user_watches=524288
+
+- name: Install zsh
+  become: true
+  become_user: root
+  apt:
+    name: zsh
+    update_cache: true
+
+- name: Install oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: "{{ user_home_path }}.oh-my-zsh"
+  
+- name: Copy .zshrc
+  copy:
+    src: .zshrc
+    dest: "{{ user_home_path }}.zshrc"
+
+- name: Set default shell
+  become: true
+  become_user: root
+  user:
+    name: "{{ default_user }}"
+    shell: /bin/zsh
