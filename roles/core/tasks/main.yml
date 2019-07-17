@@ -22,3 +22,10 @@
   vars:
     packages:
       - htop
+
+- name: Update the number of file watches
+  become: true
+  become_user: root
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: fs.inotify.max_user_watches=524288

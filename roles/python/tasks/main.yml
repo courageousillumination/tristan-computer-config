@@ -3,5 +3,15 @@
   become_user: root
   become: true
   apt:
-    name: python3-venv
+    name: "{{ packages }}"
+    update_cache: true
+  vars:
+    packages:
+      - python3-venv
+      - python3-dev
+- name: Install some common django deps
+  become_user: root
+  become: true
+  apt:
+    name: libpq-dev
     update_cache: true
