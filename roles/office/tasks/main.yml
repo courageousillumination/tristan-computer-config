@@ -1,0 +1,7 @@
+---
+- name: Install libreoffice
+  become: true
+  become_user: root
+  apt:
+    package: libreoffice
+    update_cache: true

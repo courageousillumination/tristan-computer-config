@@ -7,6 +7,7 @@
     - { role: "i3", tags: "i3"}
     - { role: "study", tags: "study"}
     - { role: "python", tags: "python"}
+    - { role: "office", tags: "office"}
   vars:
     - user_home_path: "/home/tristan/"
     - default_user: "tristan"
