@@ -5,3 +5,13 @@
   apt:
     package: libreoffice
     update_cache: true
+- name: Install Latex packages
+  become: true
+  become_user: root
+  apt:
+    package: "{{ packages }}"
+    update_cache: true
+  vars:
+    packages:
+        - texlive-full
+        - texmaker 
