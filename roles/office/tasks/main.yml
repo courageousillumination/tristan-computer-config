@@ -15,3 +15,9 @@
     packages:
         - texlive-full
         - texmaker 
+- name: Install Gimp for image manipulation
+  become: true
+  become_user: root
+  apt:
+    package: gimp
+    update_cache: true
