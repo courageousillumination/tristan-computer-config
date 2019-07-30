@@ -5,3 +5,9 @@
   apt:
     name: anki
     update_cache: true
+- name: Setup Pinyin keyboard support
+  become: true
+  become_user: root
+  apt:
+    name: ibus-pinyin
+    update_cache: true
