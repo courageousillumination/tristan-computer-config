@@ -1,0 +1,7 @@
+---
+- name: Install mpv
+  become: true
+  become_user: root
+  apt:
+    name: "mpv"
+    update_cache: true
