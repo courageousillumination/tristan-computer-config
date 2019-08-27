@@ -1,0 +1,7 @@
+---
+- name: Install heroku cli
+  become: true
+  become_user: root
+  snap:
+    name: "heroku"
+    classic: yes
