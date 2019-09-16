@@ -42,7 +42,7 @@
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: "{{ user_home_path }}.oh-my-zsh"
-  
+
 - name: Copy .zshrc
   copy:
     src: .zshrc
@@ -65,3 +65,9 @@
   become_user: root
   apt:
     deb: /tmp/google-chrome.deb
+
+- name: Install postman for REST development
+  become: true
+  become_user: root
+  snap:
+    name: postman
